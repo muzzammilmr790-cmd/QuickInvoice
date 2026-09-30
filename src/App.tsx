@@ -26,37 +26,39 @@ function MainAppContent() {
         </div>
       )}
 
-      {/* Top Navbar */}
-      <Navbar />
+      {/* Top Header Container (Sticky) */}
+      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-neutral-200/90 shadow-subtle no-print">
+        <Navbar />
 
-      {/* Mobile Tab Switcher (Visible on mobile/tablet) */}
-      <div className="lg:hidden sticky top-16 z-30 bg-white border-b border-neutral-200 px-4 py-2 flex gap-2 no-print">
-        <button
-          type="button"
-          onClick={() => setActiveMobileTab('edit')}
-          className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-xs font-bold transition-all ${
-            activeMobileTab === 'edit'
-              ? 'bg-brand-600 text-white shadow-xs'
-              : 'bg-neutral-100 text-neutral-600'
-          }`}
-        >
-          <Edit3 className="w-3.5 h-3.5" />
-          <span>1. Edit Details</span>
-        </button>
+        {/* Mobile Tab Switcher (Visible on mobile/tablet < lg) */}
+        <div className="lg:hidden border-t border-neutral-100 px-3 py-2 flex gap-2 bg-neutral-50/70">
+          <button
+            type="button"
+            onClick={() => setActiveMobileTab('edit')}
+            className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-xs font-bold transition-all ${
+              activeMobileTab === 'edit'
+                ? 'bg-brand-600 text-white shadow-xs'
+                : 'bg-white text-neutral-700 border border-neutral-200 hover:bg-neutral-100'
+            }`}
+          >
+            <Edit3 className="w-3.5 h-3.5" />
+            <span>1. Edit Details</span>
+          </button>
 
-        <button
-          type="button"
-          onClick={() => setActiveMobileTab('preview')}
-          className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-xs font-bold transition-all ${
-            activeMobileTab === 'preview'
-              ? 'bg-brand-600 text-white shadow-xs'
-              : 'bg-neutral-100 text-neutral-600'
-          }`}
-        >
-          <Eye className="w-3.5 h-3.5" />
-          <span>2. Live Preview</span>
-        </button>
-      </div>
+          <button
+            type="button"
+            onClick={() => setActiveMobileTab('preview')}
+            className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-xs font-bold transition-all ${
+              activeMobileTab === 'preview'
+                ? 'bg-brand-600 text-white shadow-xs'
+                : 'bg-white text-neutral-700 border border-neutral-200 hover:bg-neutral-100'
+            }`}
+          >
+            <Eye className="w-3.5 h-3.5" />
+            <span>2. Live Preview</span>
+          </button>
+        </div>
+      </header>
 
       {/* Main Studio Container */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 w-full">
